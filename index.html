@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Papopup by pa-bru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Papopup</h1>
+      <h2 class="project-tagline">Papopup is a plugin made purely in javascript to display and manage popups on multiple elements</h2>
+      <a href="https://github.com/pa-bru/PaPopup" class="btn">View on GitHub</a>
+      <a href="https://github.com/pa-bru/PaPopup/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pa-bru/PaPopup/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="papopup" class="anchor" href="#papopup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PaPopup</h1>
+
+<h2>
+<a id="presentation" class="anchor" href="#presentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Presentation</h2>
+
+<p>PaPopup is a plugin made purely in javascript to display and manage popups on multiple elements.</p>
+
+<h3>
+<a id="a-javascript-popup-manager" class="anchor" href="#a-javascript-popup-manager" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A JavaScript popup manager</h3>
+
+<ul>
+<li>Lightweight</li>
+<li>No dependencies</li>
+<li>Display a single popup from multiple elements</li>
+</ul>
+
+<p><strong>The normal version of PaPopup does not require jQuery</strong></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Usage</h3>
+
+<p><strong>PaPopup</strong> can be bound to an html element or even several elements :</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>papopup<span class="pl-pds">"</span></span>&gt;click me to open popup&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>Add the JavaScript to the end of your document:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>papopup.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-k">var</span> pop <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PaPopup</span>({</span>
+<span class="pl-s1">                popElem<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.papopup<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">                popUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://pa-bru.fr<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">              });</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<p>On click on one the concerned html element the popup is opened.</p>
+
+<h3>
+<a id="open-popup-after-init-on-papopup" class="anchor" href="#open-popup-after-init-on-papopup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Open popup after init on PaPopup</h3>
+
+<p><strong>To prevent the default event behavior (which is onClick on a popElem) set openAuto to false !</strong></p>
+
+<p>=&gt; you can trigger the opening of the window with <code>pop.open()</code></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pop <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PaPopup</span>({
+        openAuto<span class="pl-k">:</span> <span class="pl-c1">false</span>, <span class="pl-c">//you must create your own event handler to open the popup </span>
+                popElem<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.papopup<span class="pl-pds">"</span></span>,
+                popUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://pa-bru.fr<span class="pl-pds">"</span></span>
+});
+
+<span class="pl-c">/*code*/</span>
+
+<span class="pl-smi">popElem</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">"</span>click<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){
+                        <span class="pl-smi">e</span>.<span class="pl-c1">preventDefault</span>();
+                        <span class="pl-smi">pop</span>.<span class="pl-c1">open</span>(); <span class="pl-c">// now you open the popup</span>
+}, <span class="pl-c1">false</span>);</pre></div>
+
+<h3>
+<a id="close-a-popup" class="anchor" href="#close-a-popup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Close a popup</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>closePop<span class="pl-pds">"</span></span>&gt;click me to open popup&lt;/<span class="pl-ent">div</span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>openPop<span class="pl-pds">"</span></span>&gt;click me to close popup&lt;/<span class="pl-ent">div</span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-k">var</span> pop <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PaPopup</span>({</span>
+<span class="pl-s1">            openAuto<span class="pl-k">:</span> <span class="pl-c1">true</span>,</span>
+<span class="pl-s1">            popElem<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.openPop<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">            popUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://pa-bru.fr<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/*the popup is opened on click on elements having class openPop*/</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">var</span> closePop <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">"</span>.closePop<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1">    <span class="pl-smi">closePop</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">"</span>click<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){</span>
+<span class="pl-s1">                <span class="pl-smi">e</span>.<span class="pl-c1">preventDefault</span>();</span>
+<span class="pl-s1">                <span class="pl-smi">pop</span>.<span class="pl-c1">close</span>(); <span class="pl-c">// close the popup</span></span>
+<span class="pl-s1">    }, <span class="pl-c1">false</span>);</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h3>
+<a id="setters" class="anchor" href="#setters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setters</h3>
+
+<p><strong>You can add/remove/change properties of the papopup object after the init !</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setPosition</span>(<span class="pl-s"><span class="pl-pds">"</span>a position<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Define the position of the popup on the screen (more details in Properties topic)</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setCustomMargin</span>(marginTop, marginLeft);</pre></div>
+
+<p>Define a custom position of the popup on the screen with pixels (more details in Properties topic)</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setPopOptions</span>(<span class="pl-s"><span class="pl-pds">"</span>options<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>Define the options of the window (more details in Properties topic)</p>
+
+<h2>
+<a id="properties" class="anchor" href="#properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h2>
+
+<ul>
+<li>
+<code>popElem</code> : (default <code>.papopup</code>) bind the popup to every selected element (eg: <code>popElem: ".popups"</code>)</li>
+<li>
+<code>popUrl</code> : URL of the new window to open in a popup</li>
+<li>
+<code>position</code> : (default <code>center</code>) The position of the popup on the screen
+
+<ul>
+<li>center</li>
+<li>top center</li>
+<li>top left</li>
+<li>top right</li>
+<li>bottom center</li>
+<li>bottom left</li>
+<li>bottom right</li>
+</ul>
+</li>
+<li>
+<code>openAuto</code> : (default <code>true</code>) Define or not the default event to open the popup (onclick)</li>
+<li>
+<code>popName</code> : (default <code>papopup</code>) Specifies the name of the window</li>
+<li>
+<code>marginTop</code> : (default <code>null</code>) Define the top position of the window
+
+<ul>
+<li>in pixels</li>
+<li>Override the <code>position</code> property</li>
+<li>Negative values not allowed</li>
+<li>You must also set the <code>marginLeft</code> property</li>
+</ul>
+</li>
+<li>
+<code>marginLeft</code> : (default <code>null</code>) Define the width of the window
+
+<ul>
+<li>in pixels</li>
+<li>Override the <code>position</code> property</li>
+<li>Negative values not allowed</li>
+<li>You must also set the <code>marginTop</code> property</li>
+</ul>
+</li>
+<li>
+<code>popHeight</code> : (default <code>500</code>) Define the height of the window
+
+<ul>
+<li>Min. value is 100</li>
+</ul>
+</li>
+<li>
+<code>popWidth</code> : (default <code>500</code>) Define the height of the window
+
+<ul>
+<li>Min. value is 100</li>
+</ul>
+</li>
+<li>
+<code>popOptions</code> : (default <code>null</code>) A comma-separated list of items (no whitespaces) defining the options of the window. 
+eg: <code>menubar=yes,status=no</code>
+
+<ul>
+<li>
+<code>menubar=yes|no|1|0</code> : Whether or not to display the menu bar</li>
+<li>
+<code>status=yes|no|1|0</code> : Whether or not to add a status bar</li>
+<li>
+<code>titlebar=yes|no|1|0</code> : Whether or not to display the title bar. Ignored unless the calling application is an HTML Application or a trusted dialog box</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="releases" class="anchor" href="#releases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Releases</h2>
+
+<p><strong>v1.0 :</strong></p>
+
+<ul>
+<li>Initial Version</li>
+</ul>
+
+<h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h2>
+
+<ul>
+<li>Paul-Adrien Bru <a href="http://pa-bru.fr" title="Visit My Portfolio">My Website</a>, <a href="https://fr.linkedin.com/in/pauladrienbru" title="Visit My Linkedin">Linkedin</a>
+</li>
+</ul>
+
+<p>Copyright © 2016 Paul-Adrien Bru | MIT license</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/pa-bru/PaPopup">Papopup</a> is maintained by <a href="https://github.com/pa-bru">pa-bru</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
