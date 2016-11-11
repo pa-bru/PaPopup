@@ -39,8 +39,8 @@
                 popHeight: 500,
                 popWidth: 500,
                 popName: "papopup",
-                popOptions: "fullscreen=no",
                 popUrl: "http://pa-bru.fr",
+                popOptions: null,
                 marginTop: null,
                 marginLeft: null
             };
