@@ -1,4 +1,4 @@
-# Papopup
+﻿# Papopup
 
 ## Presentation
 
@@ -13,6 +13,8 @@ Papopup is a plugin made purely in javascript to display and manage popups on mu
 **The normal version of Papopup does not require jQuery**
 
 ## Usage
+
+### Basic Usage
 
 **PaPopup** can be bound to an html element or even several elements :
 
@@ -34,11 +36,61 @@ Add the JavaScript to the end of your document:
 
 On click on one the concerned html element the popup is opened.
 
-**To prevent the default event behavior set openAuto to false !**
+### Open popup after init on Papopup
+
+**To prevent the default event behavior (which is onClick on a popElem) set openAuto to false !**
 
 => you can trigger the opening of the window with `pop.open()`
 
-## Configuration
+```javascript
+var pop = new PaPopup({
+		openAuto: false, //you must create your own event handler to open the popup 
+                popElem: ".papopup",
+                popUrl: "http://pa-bru.fr"
+});
+
+/*code*/
+
+popElem.addEventListener("click", function(e){
+                        e.preventDefault();
+                        pop.open(); // now you open the popup
+}, false);
+```
+
+### close a popup
+
+```javascript
+var pop = new PaPopup({
+                popElem: ".papopup",
+                popUrl: "http://pa-bru.fr"
+});
+
+/*the popup is opened on click on elements having class papopup*/
+
+pop.close();
+```
+
+### Setters
+
+**You can add/remove/change properties of the papopup object after the init !**
+
+```javascript
+pop.setPosition("a position");
+```
+Define the position of the popup on the screen (more details in Properties topic)
+
+```javascript
+pop.setCustomMargin(marginTop, marginLeft);
+```
+Define a custom position of the popup on the screen with pixels (more details in Properties topic)
+
+```javascript
+pop.setPopOptions("options");
+```
+Define the options of the window (more details in Properties topic)
+
+
+## Properties
 
 * `popElem` : (default `.papopup`) bind the popup to every selected element (eg: `popElem: ".popups"`)
 * `popUrl` : URL of the new window to open in a popup
