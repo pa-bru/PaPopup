@@ -19,7 +19,7 @@ Papopup is a plugin made purely in javascript to display and manage popups on mu
 **PaPopup** can be bound to an html element or even several elements :
 
 ```html
-<input type="text" id="datepicker">
+<div class="papopup">click me to open popup</div>
 ```
 
 Add the JavaScript to the end of your document:
@@ -57,17 +57,26 @@ popElem.addEventListener("click", function(e){
 }, false);
 ```
 
-### close a popup
+### Close a popup
 
-```javascript
-var pop = new PaPopup({
-                popElem: ".papopup",
-                popUrl: "http://pa-bru.fr"
-});
+```html
+<div class="closePop">click me to open popup</div>
+<div class="openPop">click me to close popup</div>
+<script>
+	var pop = new PaPopup({
+			openAuto: true,
+			popElem: ".openPop",
+			popUrl: "http://pa-bru.fr"
+	});
 
-/*the popup is opened on click on elements having class papopup*/
+	/*the popup is opened on click on elements having class openPop*/
 
-pop.close();
+	var closePop = document.querySelectorAll(".closePop");
+	closePop.addEventListener("click", function(e){
+				e.preventDefault();
+				pop.close(); // close the popup
+	}, false);
+</script>
 ```
 
 ### Setters
