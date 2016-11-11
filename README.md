@@ -1,8 +1,8 @@
-﻿# Papopup
+# PaPopup
 
 ## Presentation
 
-Papopup is a plugin made purely in javascript to display and manage popups on multiple elements.
+PaPopup is a plugin made purely in javascript to display and manage popups on multiple elements.
 
 ### A JavaScript popup manager
 
@@ -10,7 +10,7 @@ Papopup is a plugin made purely in javascript to display and manage popups on mu
 * No dependencies
 * Display a single popup from multiple elements
 
-**The normal version of Papopup does not require jQuery**
+**The normal version of PaPopup does not require jQuery**
 
 ## Usage
 
@@ -36,7 +36,7 @@ Add the JavaScript to the end of your document:
 
 On click on one the concerned html element the popup is opened.
 
-### Open popup after init on Papopup
+### Open popup after init on PaPopup
 
 **To prevent the default event behavior (which is onClick on a popElem) set openAuto to false !**
 
