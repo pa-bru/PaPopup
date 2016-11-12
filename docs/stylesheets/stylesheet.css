@@ -28,20 +28,50 @@ a {
   .btn + .btn {
     margin-left: 1rem; }
 
+.btn-dark {
+  
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(21, 105, 135);
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.3rem;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  }
+
+.btn-dark:hover{
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(21, 105, 135, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 .btn:hover {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3); }
 
+
+
 @media screen and (min-width: 64em) {
   .btn {
-    padding: 0.75rem 1rem; } }
+    padding: 0.75rem 1rem; 
+  } 
+  .btn-dark{padding: 0.75rem 1rem; } 
+}
+
+    
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .btn {
     padding: 0.6rem 0.9rem;
-    font-size: 0.9rem; } }
+    font-size: 0.9rem; } 
+  .btn-dark{padding: 0.6rem 0.9rem;
+    font-size: 0.9rem; 
+  } 
+}
 
 @media screen and (max-width: 42em) {
   .btn {
@@ -51,7 +81,15 @@ a {
     font-size: 0.9rem; }
     .btn + .btn {
       margin-top: 1rem;
-      margin-left: 0; } }
+      margin-left: 0; } 
+
+.btn-dark{padding: 0.6rem 0.9rem;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem; 
+  } 
+}
 
 .page-header {
   color: #fff;
