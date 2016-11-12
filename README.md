@@ -4,6 +4,8 @@
 
 PaPopup is a plugin made purely in javascript to display and manage popups on multiple elements.
 
+[**Demo & Doc→**][papopup]
+
 ### A JavaScript popup manager
 
 * Lightweight
@@ -148,3 +150,4 @@ Copyright © 2016 Paul-Adrien Bru | MIT license
 
   [portfolio]: http://pa-bru.fr "Visit My Portfolio"  
   [linkedin]: https://fr.linkedin.com/in/pauladrienbru "Visit My Linkedin"
+  [papopup]: https://pa-bru.github.io/PaPopup/ "Demo and Doc of PaPopup"
