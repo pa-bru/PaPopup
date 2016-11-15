@@ -62,8 +62,8 @@ popElem.addEventListener("click", function(e){
 ### Close a popup
 
 ```html
-<div class="closePop">click me to open popup</div>
-<div class="openPop">click me to close popup</div>
+<div class="openPop">click me to open popup</div>
+<div class="closePop">click me to close popup</div>
 <script>
 	var pop = new PaPopup({
 			openAuto: true,
