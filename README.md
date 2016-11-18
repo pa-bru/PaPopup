@@ -113,27 +113,27 @@ var pop = new PaPopup({
 **You can add/remove/change properties of the papopup object after the init !**
 
 
-Define the position of the popup on the screen (more details in Properties topic)
+* Define the position of the popup on the screen (more details in Properties topic)
 ```javascript
 pop.setPosition("a position");
 ```
 
-Define a custom position of the popup on the screen with pixels (more details in Properties topic)
+* Define a custom position of the popup on the screen with pixels (more details in Properties topic)
 ```javascript
 pop.setCustomMargin(marginTop, marginLeft);
 ```
 
-Define the options of the window (more details in Properties topic)
+* Define the options of the window (more details in Properties topic)
 ```javascript
 pop.setPopOptions("options");
 ```
 
-Specify a callback function to call when the popup opens (more details in Properties topic)
+* Specify a callback function to call when the popup opens (more details in Properties topic)
 ```javascript
 pop.setOnOpen(callback);
 ```
 
-Specify a callback function to call when the popup closes (more details in Properties topic)
+* Specify a callback function to call when the popup closes (more details in Properties topic)
 ```javascript
 pop.setOnClose(callback);
 ```
