@@ -8,12 +8,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <script type="text/javascript" src="papopup.js"></script>
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">Papopup</h1>
-      
       <h2 class="project-tagline">Papopup is a plugin made purely in javascript to display and manage popups on multiple elements</h2>
       <a href="https://github.com/pa-bru/PaPopup" class="btn">View on GitHub</a>
       <a href="https://github.com/pa-bru/PaPopup/zipball/master" class="btn">Download .zip</a>
@@ -24,7 +22,7 @@
       <h1>
 <a id="papopup" class="anchor" href="#papopup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PaPopup</h1>
 
-<h2><a id="try" class="anchor" href="#try" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Give a try</h2>
+      <h2><a id="try" class="anchor" href="#try" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Give a try</h2>
 
 <a href="" class=" btn-dark" id="openPop">open a popup</a>
 <a href="" class=" btn-dark" id="closePop">close a popup</a>
@@ -49,11 +47,14 @@
                 pop.close(); // close the popup
     }, false);
 </script>
-
+      
+      
 <h2>
 <a id="presentation" class="anchor" href="#presentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Presentation</h2>
 
 <p>PaPopup is a plugin made purely in javascript to display and manage popups on multiple elements.</p>
+
+<p><a href="https://pa-bru.github.io/PaPopup/" title="Demo and Doc of PaPopup"><strong>Demo &amp; Doc→</strong></a></p>
 
 <h3>
 <a id="a-javascript-popup-manager" class="anchor" href="#a-javascript-popup-manager" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A JavaScript popup manager</h3>
@@ -111,8 +112,8 @@
 <h3>
 <a id="close-a-popup" class="anchor" href="#close-a-popup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Close a popup</h3>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>closePop<span class="pl-pds">"</span></span>&gt;click me to open popup&lt;/<span class="pl-ent">div</span>&gt;
-&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>openPop<span class="pl-pds">"</span></span>&gt;click me to close popup&lt;/<span class="pl-ent">div</span>&gt;
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>openPop<span class="pl-pds">"</span></span>&gt;click me to open popup&lt;/<span class="pl-ent">div</span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>closePop<span class="pl-pds">"</span></span>&gt;click me to close popup&lt;/<span class="pl-ent">div</span>&gt;
 <span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
 <span class="pl-s1">    <span class="pl-k">var</span> pop <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PaPopup</span>({</span>
 <span class="pl-s1">            openAuto<span class="pl-k">:</span> <span class="pl-c1">true</span>,</span>
@@ -130,21 +131,66 @@
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 
 <h3>
-<a id="setters" class="anchor" href="#setters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setters</h3>
+<a id="triggered-events" class="anchor" href="#triggered-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Triggered events</h3>
+
+<ul>
+<li>onOpen : you can call a function you want when the popup opens</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pop <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PaPopup</span>({
+    popElem<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.papopup<span class="pl-pds">"</span></span>,
+    popUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://pa-bru.fr<span class="pl-pds">"</span></span>,
+    <span class="pl-en">onOpen</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>run my onOpen callback function<span class="pl-pds">'</span></span>);
+    }
+});</pre></div>
+
+<ul>
+<li>onClose : you can call a function you want when the popup closes</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pop <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PaPopup</span>({
+    popElem<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.papopup<span class="pl-pds">"</span></span>,
+    popUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://pa-bru.fr<span class="pl-pds">"</span></span>,
+    <span class="pl-en">onClose</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>run my onClose callback function<span class="pl-pds">'</span></span>);
+    }
+});</pre></div>
+
+<h2>
+<a id="setters" class="anchor" href="#setters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setters</h2>
 
 <p><strong>You can add/remove/change properties of the papopup object after the init !</strong></p>
 
+<ul>
+<li>Define the position of the popup on the screen (more details in Properties topic)</li>
+</ul>
+
 <div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setPosition</span>(<span class="pl-s"><span class="pl-pds">"</span>a position<span class="pl-pds">"</span></span>);</pre></div>
 
-<p>Define the position of the popup on the screen (more details in Properties topic)</p>
+<ul>
+<li>Define a custom position of the popup on the screen with pixels (more details in Properties topic)</li>
+</ul>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setCustomMargin</span>(marginTop, marginLeft);</pre></div>
 
-<p>Define a custom position of the popup on the screen with pixels (more details in Properties topic)</p>
+<ul>
+<li>Define the options of the window (more details in Properties topic)</li>
+</ul>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setPopOptions</span>(<span class="pl-s"><span class="pl-pds">"</span>options<span class="pl-pds">"</span></span>);</pre></div>
 
-<p>Define the options of the window (more details in Properties topic)</p>
+<ul>
+<li>Specify a callback function to call when the popup opens (more details in Properties topic)</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setOnOpen</span>(callback);</pre></div>
+
+<ul>
+<li>Specify a callback function to call when the popup closes (more details in Properties topic)</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">pop</span>.<span class="pl-en">setOnClose</span>(callback);</pre></div>
 
 <h2>
 <a id="properties" class="anchor" href="#properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h2>
@@ -218,6 +264,10 @@ eg: <code>menubar=yes,status=no</code>
 <code>titlebar=yes|no|1|0</code> : Whether or not to display the title bar. Ignored unless the calling application is an HTML Application or a trusted dialog box</li>
 </ul>
 </li>
+<li>
+<code>onOpen</code> : (default <code>null</code>) A function you want to call when the popup opens.</li>
+<li>
+<code>onClose</code> : (default <code>null</code>) A function you want to call when the popup closes.</li>
 </ul>
 
 <h2>
@@ -247,6 +297,6 @@ eg: <code>menubar=yes,status=no</code>
 
     </section>
 
-
+  
   </body>
 </html>
