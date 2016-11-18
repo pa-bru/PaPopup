@@ -81,25 +81,62 @@ popElem.addEventListener("click", function(e){
 </script>
 ```
 
-### Setters
+### Triggered events
+
+* onOpen : you can call a function you want when the popup opens
+
+```javascript
+var pop = new PaPopup({
+	popElem: ".papopup",
+	popUrl: "http://pa-bru.fr",
+	onOpen: function() {
+		console.log('run my onOpen callback function');
+	}
+});
+```
+
+* onClose : you can call a function you want when the popup closes
+
+```javascript
+var pop = new PaPopup({
+	popElem: ".papopup",
+	popUrl: "http://pa-bru.fr",
+	onClose: function() {
+		console.log('run my onClose callback function');
+	}
+});
+```
+
+
+## Setters
 
 **You can add/remove/change properties of the papopup object after the init !**
 
+
+Define the position of the popup on the screen (more details in Properties topic)
 ```javascript
 pop.setPosition("a position");
 ```
-Define the position of the popup on the screen (more details in Properties topic)
 
+Define a custom position of the popup on the screen with pixels (more details in Properties topic)
 ```javascript
 pop.setCustomMargin(marginTop, marginLeft);
 ```
-Define a custom position of the popup on the screen with pixels (more details in Properties topic)
 
+Define the options of the window (more details in Properties topic)
 ```javascript
 pop.setPopOptions("options");
 ```
-Define the options of the window (more details in Properties topic)
 
+Specify a callback function to call when the popup opens (more details in Properties topic)
+```javascript
+pop.setOnOpen(callback);
+```
+
+Specify a callback function to call when the popup closes (more details in Properties topic)
+```javascript
+pop.setOnClose(callback);
+```
 
 ## Properties
 
@@ -134,6 +171,8 @@ Define the options of the window (more details in Properties topic)
   * `menubar=yes|no|1|0` : Whether or not to display the menu bar
   * `status=yes|no|1|0` : Whether or not to add a status bar
   * `titlebar=yes|no|1|0` : Whether or not to display the title bar. Ignored unless the calling application is an HTML Application or a trusted dialog box
+* `onOpen` : (default `null`) A function you want to call when the popup opens.
+* `onClose` : (default `null`) A function you want to call when the popup closes.
 
 
 ## Releases
