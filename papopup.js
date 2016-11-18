@@ -42,7 +42,9 @@
                 popUrl: "http://pa-bru.fr",
                 popOptions: null,
                 marginTop: null,
-                marginLeft: null
+                marginLeft: null,
+                onOpen: null,
+                onClose: null
             };
 
             // Create options by extending defaults with the passed in arugments
@@ -137,11 +139,18 @@
         if (window.focus) {
             this.newWindow.focus();
         }
+        if (typeof this.options.onOpen === "function") {
+        	this.options.onOpen.call(this);
+    	}
     };
 
     PaPopup.prototype.close = function() {
         if(typeof this.newWindow != 'undefined'){
             this.newWindow.close();
+
+            if (typeof this.options.onClose === "function") {
+            	this.options.onClose.call(this);
+        	}
         }
     };
 }());
