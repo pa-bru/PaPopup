@@ -93,6 +93,18 @@
         this.options.marginLeft =  parseInt(marginLeft);
     };
 
+    PaPopup.prototype.setOnOpen = function(callback){
+    	if (typeof callback === "function") {
+        	this.options.onOpen = callback();
+		}
+    };
+
+    PaPopup.prototype.setOnClose = function(callback){
+    	if (typeof callback === "function") {
+        	this.options.onClose = callback();
+		}
+    };
+
     PaPopup.prototype.setPosition = function(position){
         var screenHeight =  window.screen.height;
         var screenWidth = window.screen.width;
@@ -131,8 +143,6 @@
     };
 
     PaPopup.prototype.open = function() {
-        console.log("open");
-        console.log(this);
         this.newWindow = window.open(this.options.popUrl,
             this.options.popName,
             "width="+this.options.popWidth+",height="+this.options.popHeight+",top="+this.options.marginTop+",left="+this.options.marginLeft + this.options.popOptions);
