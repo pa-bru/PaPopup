@@ -42,7 +42,9 @@
                 popUrl: "http://pa-bru.fr",
                 popOptions: null,
                 marginTop: null,
-                marginLeft: null
+                marginLeft: null,
+                onOpen: null,
+                onClose: null
             };
 
             // Create options by extending defaults with the passed in arugments
@@ -91,6 +93,18 @@
         this.options.marginLeft =  parseInt(marginLeft);
     };
 
+    PaPopup.prototype.setOnOpen = function(callback){
+    	if (typeof callback === "function") {
+        	this.options.onOpen = callback();
+		}
+    };
+
+    PaPopup.prototype.setOnClose = function(callback){
+    	if (typeof callback === "function") {
+        	this.options.onClose = callback();
+		}
+    };
+
     PaPopup.prototype.setPosition = function(position){
         var screenHeight =  window.screen.height;
         var screenWidth = window.screen.width;
@@ -129,19 +143,24 @@
     };
 
     PaPopup.prototype.open = function() {
-        console.log("open");
-        console.log(this);
         this.newWindow = window.open(this.options.popUrl,
             this.options.popName,
             "width="+this.options.popWidth+",height="+this.options.popHeight+",top="+this.options.marginTop+",left="+this.options.marginLeft + this.options.popOptions);
         if (window.focus) {
             this.newWindow.focus();
         }
+        if (typeof this.options.onOpen === "function") {
+        	this.options.onOpen.call(this);
+    	}
     };
 
     PaPopup.prototype.close = function() {
         if(typeof this.newWindow != 'undefined'){
             this.newWindow.close();
+
+            if (typeof this.options.onClose === "function") {
+            	this.options.onClose.call(this);
+        	}
         }
     };
 }());

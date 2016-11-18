@@ -32,7 +32,10 @@
   var pop = new PaPopup({
             openAuto: true,
             popElem: "#openPop",
-            popUrl: "http://pa-bru.fr"
+            popUrl: "http://pa-bru.fr",
+            onOpen: function() {
+                console.log('run my onOpen callback function');
+            }
     });
 
     /*the popup is opened on click on elements having class openPop*/
@@ -40,6 +43,9 @@
     var closePop = document.querySelectorAll("#closePop")[0];
     closePop.addEventListener("click", function(e){
                 e.preventDefault();
+                pop.setOnClose(function(){
+                  console.log('run my onClose callback function');
+                })
                 pop.close(); // close the popup
     }, false);
 </script>
