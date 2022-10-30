@@ -183,10 +183,9 @@ pop.setOnClose(callback);
 
 ## Author
 
-* Paul-Adrien Bru [My Website][portfolio], [Linkedin][linkedin]
+* Paul-Adrien Bru [Linkedin][linkedin]
 
 Copyright © 2016 Paul-Adrien Bru | MIT license
-
-  [portfolio]: http://pa-bru.fr "Visit My Portfolio"  
+ 
   [linkedin]: https://fr.linkedin.com/in/pauladrienbru "Visit My Linkedin"
   [papopup]: https://pa-bru.github.io/PaPopup/ "Demo and Doc of PaPopup"
